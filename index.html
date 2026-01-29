@@ -72,6 +72,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: nowrap;
         }
 
 .logo {
@@ -894,6 +895,46 @@
         font-size: 0.8rem;
     }
 }
+@media (max-width: 768px) {
+    .logo {
+        font-size: 1.25rem;
+        letter-spacing: 2.5px;
+        padding: 6px 14px;
+        box-shadow:
+            0 0 10px rgba(34, 211, 238, 0.3),
+            inset 0 0 6px rgba(99, 102, 241, 0.15);
+    }
+
+    .nav-links {
+        gap: 1.4rem;
+    }
+
+    .nav-links a {
+        font-size: 0.85rem;
+    }
+
+    .theme-toggle {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.1rem;
+        letter-spacing: 2px;
+        padding: 5px 12px;
+    }
+
+    .nav-links {
+        gap: 1rem;
+    }
+
+    .nav-links a {
+        font-size: 0.8rem;
+    }
+}
+
 
     </style>
 </head>
