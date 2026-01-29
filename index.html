@@ -840,6 +840,61 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+         @media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 1.2rem;
+        padding: 1.2rem 1.5rem;
+    }
+
+    .logo {
+        font-size: 1.3rem;
+        letter-spacing: 3px;
+    }
+
+    .nav-links {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.2rem;
+    }
+
+    .nav-links li {
+        display: flex;
+        justify-content: center;
+    }
+
+    .nav-links a {
+        font-size: 0.95rem;
+    }
+
+    .theme-toggle {
+        padding: 0.45rem 0.9rem;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.15rem;
+        letter-spacing: 2px;
+        padding: 6px 14px;
+    }
+
+    .nav-links {
+        gap: 0.9rem;
+    }
+
+    .nav-links a {
+        font-size: 0.85rem;
+    }
+
+    .theme-toggle {
+        font-size: 0.8rem;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -847,6 +902,7 @@
     <nav id="navbar">
         <div class="nav-container">
             <div class="logo">JM</div>
+            
             <ul class="nav-links">
                 <li><a href="#about">About Me</a></li>
                 <li><a href="#projects">Projects</a></li>
@@ -1175,6 +1231,7 @@
             </form>
         </div>
     </section>
+    
 
     <!-- Footer -->
     <footer>
@@ -1327,5 +1384,7 @@
             card.style.animationDelay = `${index * 0.1}s`;
         });
     </script>
+
+    
 </body>
 </html>
