@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaid Mulla - AI & ML Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #faf8f5;
+            --bg-secondary: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #4a4a4a;
+            --accent: rgb(59, 131, 169);
+            --accent-light:rgb(59, 131, 169)4;
+            --border: #b1ddff;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #0f0f0f;
+            --bg-secondary: #1a1a1a;
+            --text-primary: #f5f5f5;
+            --text-secondary: #b0b0b0;
+            --accent: #347ba6;
+            --accent-light: #347ba6;
+            --border: #333333;
+            --shadow: rgba(255, 255, 255, 0.05);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Crimson Pro', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: background-color 0.4s ease, color 0.4s ease;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(19, 110, 159, 0.736);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        nav.scrolled {
+            box-shadow: 0 4px 20px var(--shadow);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+.logo {
+    font-family: 'DM Mono', monospace;
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: #38bdf8;
+
+    padding: 8px 18px;
+    border-radius: 10px;
+
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(10px);
+
+    border: 2px solid transparent;
+    background-image:
+        linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.6)),
+        linear-gradient(135deg, #22d3ee, #6366f1, #22d3ee);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+
+    box-shadow:
+        0 0 15px rgba(34, 211, 238, 0.35),
+        inset 0 0 10px rgba(99, 102, 241, 0.2);
+
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+/* Hover: AI pulse effect */
+.logo:hover {
+    color: #ffffff;
+    box-shadow:
+        0 0 25px rgba(34, 211, 238, 0.7),
+        0 0 50px rgba(99, 102, 241, 0.5);
+    transform: translateY(-2px) scale(1.06);
+}
+
+
+
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+    align-items: center;
+}
+
+/* Base link */
+.nav-links a {
+    text-decoration: none;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.85);
+    position: relative;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
+}
+
+/* AI underline */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #22d3ee, #6366f1);
+    box-shadow: 0 0 8px rgba(34, 211, 238, 0.9);
+    transition: all 0.35s ease;
+    transform: translateX(-50%);
+}
+
+/* Hover effect */
+.nav-links a:hover {
+    color: #22d3ee;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Active link (optional) */
+.nav-links a.active {
+    color: #22d3ee;
+}
+
+.nav-links a.active::after {
+    width: 100%;
+}
+
+
+        /* Theme Toggle */
+        .theme-toggle {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent);
+            color: var(--bg-primary);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--accent-light) 0%, transparent 70%);
+            opacity: 0.15;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(-30px, -30px) rotate(90deg); }
+            50% { transform: translate(-60px, 0) rotate(180deg); }
+            75% { transform: translate(-30px, 30px) rotate(270deg); }
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+        }
+
+        .hero-text h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero-text h1 .accent {
+            color: var(--accent);
+            display: block;
+        }
+
+        .animated-role {
+            font-family: 'DM Mono', monospace;
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin: 2rem 0;
+            height: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .role-text {
+            opacity: 0;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .cursor {
+            width: 2px;
+            height: 1.2rem;
+            background: var(--accent);
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 0;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            font-family: 'DM Mono', monospace;
+            border: 2px solid var(--accent);
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--bg-primary);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent);
+            color: var(--bg-primary);
+            transform: translateY(-3px);
+        }
+
+        .profile-image {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            aspect-ratio: 1;
+            margin: 0 auto;
+        }
+
+        .image-frame {
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--accent);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+
+        .image-frame::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: -105px;
+            bottom: -105px;
+            border: 1px solid var(--border);
+            z-index: -1;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* Section Styles */
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+        }
+
+        .section-subtitle {
+            font-family: 'DM Mono', monospace;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            font-size: 1rem;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .about-text {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            color: var(--text-secondary);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .skill-category h3 {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--accent);
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .skill-tag {
+            padding: 0.5rem 1rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            font-family: 'DM Mono', monospace;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: var(--accent);
+            color: var(--bg-primary);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px var(--shadow);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-date {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .tech-badge {
+            padding: 0.3rem 0.8rem;
+            background: transparent;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            font-family: 'DM Mono', monospace;
+            font-size: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .tech-badge:hover {
+            background: var(--accent);
+            color: var(--bg-primary);
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            transform: translateX(5px);
+        }
+
+        /* Achievements/Experience Section */
+        .timeline {
+            position: relative;
+            margin-top: 3rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 3px solid var(--bg-primary);
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .timeline-company {
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-date {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .timeline-description {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .timeline-description ul {
+            margin-top: 1rem;
+            padding-left: 1.5rem;
+        }
+
+        .timeline-description li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            color: var(--bg-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .contact-details h3 {
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+            font-family: 'DM Mono', monospace;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-details a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-details a:hover {
+            color: var(--accent);
+        }
+
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.social-link {
+    width: 110px;
+    height: 42px;
+    border-radius: 30px;
+    border: 2px solid var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--accent);
+    background: transparent;
+    transition: all 0.35s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+        .social-link:hover {
+            background: var(--accent);
+            color: var(--bg-primary);
+            transform: translateY(-5px) rotate(5deg);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 1rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            font-family: 'Crimson Pro', serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(40, 127, 174, 0.684);
+            border-top: 1px solid var(--border);
+            padding: 1rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-text {
+            font-family: 'DM Mono', monospace;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+
+            .profile-image {
+                order: -1;
+            }
+
+            .cta-buttons {
+                justify-content: center;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">JM</div>
+            <ul class="nav-links">
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><button class="theme-toggle" id="themeToggle">
+                    <span id="themeIcon">☀️</span>
+                    <span id="themeText">Light</span>
+                </button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>
+                    Hello, I'm
+                    <span class="accent">Jaid Mulla</span>
+                </h1>
+                <div class="animated-role">
+                    <span class="role-text" id="roleText"></span>
+                    <span class="cursor"></span>
+                </div>
+                <p class="hero-description">
+                    B.Tech student specializing in Artificial Intelligence and Machine Learning, 
+                    passionate about building intelligent systems and creating innovative solutions 
+                    through cutting-edge technology.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+            <div class="profile-image">
+                <div class="image-frame">
+                    <div class="image-placeholder"><img draggable="false" class="image-frame" src="Jm official B.jpeg" alt="" ></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="fade-in">
+        <h2 class="section-title">About Me</h2>
+        <p class="section-subtitle">Get to know me better</p>
+        <div class="about-content">
+            <div class="about-text">
+                <p>
+                    I'm a B.Tech student at Sanjay Ghodawat University pursuing Artificial Intelligence 
+                    and Machine Learning. With a strong foundation from my Diploma in Computer Science 
+                    from Ashokrao Mane Polytechnic, I've developed a comprehensive skill set spanning 
+                    web development, machine learning, and AI technologies.
+                </p>
+                <p>
+                    My journey in tech has been marked by hands-on experience through internships and 
+                    freelance projects, where I've contributed to real-world applications ranging from 
+                    responsive websites to intelligent face recognition systems. I'm driven by curiosity 
+                    and a constant desire to learn and implement emerging technologies.
+                </p>
+                <p>
+                    Currently based in Kolhapur, Maharashtra, I'm actively seeking opportunities to 
+                    contribute to innovative AI and ML projects that push the boundaries of what's possible.
+                </p>
+            </div>
+            <div class="skills-list">
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">HTML/CSS</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Technologies</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Machine Learning</span>
+                        <span class="skill-tag">Deep Learning</span>
+                        <span class="skill-tag">OpenCV</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">MongoDB</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">VS Code</span>
+                        <span class="skill-tag">Git/GitHub</span>
+                        <span class="skill-tag">Jupyter</span>
+                        <span class="skill-tag">GCP</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="fade-in">
+        <h2 class="section-title">Projects</h2>
+        <p class="section-subtitle">Some things I've built</p>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <h3 class="project-title">AI Smart Face Recognition</h3>
+                        <p class="project-date">February 2023</p>
+                    </div>
+                </div>
+                <p class="project-description">
+                    Developed a real-time face detection and recognition system using machine learning 
+                    algorithms. Implemented Haar Cascade for accurate detection and utilized Dlib and 
+                    Face Recognition libraries for facial feature extraction and matching. Created an 
+                    intuitive GUI for seamless user interaction.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-badge">Python</span>
+                    <span class="tech-badge">OpenCV</span>
+                    <span class="tech-badge">CMake</span>
+                    <span class="tech-badge">Dlib</span>
+                    <span class="tech-badge">NumPy</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <h3 class="project-title">Housing Price Prediction</h3>
+                        <p class="project-date">March 2024</p>
+                    </div>
+                </div>
+                <p class="project-description">
+                    Built a machine learning model to predict housing prices based on multiple features 
+                    including location, size, and amenities. Implemented regression techniques and 
+                    conducted comprehensive data analysis. Achieved high accuracy with optimized model 
+                    performance metrics.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-badge">Python</span>
+                    <span class="tech-badge">Pandas</span>
+                    <span class="tech-badge">NumPy</span>
+                    <span class="tech-badge">Scikit-learn</span>
+                    <span class="tech-badge">ML</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <h3 class="project-title">Real Estate CRM System</h3>
+                        <p class="project-date">August 2025 - Present</p>
+                    </div>
+                </div>
+                <p class="project-description">
+                    Developing a comprehensive Customer Relationship Management system for real estate 
+                    organizations. Features include client information management, engagement tracking, 
+                    and support tools for agents. Built with modern web technologies and database 
+                    integration for seamless data management.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-badge">JavaScript</span>
+                    <span class="tech-badge">HTML/CSS</span>
+                    <span class="tech-badge">Bootstrap</span>
+                    <span class="tech-badge">MongoDB</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <h3 class="project-title">Bigblock Infraworld Website</h3>
+                        <p class="project-date">January 2024 - February 2024</p>
+                    </div>
+                </div>
+                <p class="project-description">
+                    Developed a fully responsive real estate website enabling users to search and browse 
+                    property listings. Implemented dynamic search filters and interactive image galleries 
+                    for enhanced user experience. Ensured cross-browser compatibility with clean, 
+                    intuitive design.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-badge">HTML</span>
+                    <span class="tech-badge">CSS</span>
+                    <span class="tech-badge">JavaScript</span>
+                    <span class="tech-badge">Responsive</span>
+                </div>
+                <a href="https://bigblockinfraworld.in" target="_blank" class="project-link">View Live →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="fade-in">
+        <h2 class="section-title">Experience</h2>
+        <p class="section-subtitle">My professional journey</p>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div>
+                        <h3 class="timeline-title">Web Development Intern</h3>
+                        <p class="timeline-company">Revolution IT Solution</p>
+                    </div>
+                    <p class="timeline-date">July 2022 - August 2022</p>
+                </div>
+                <div class="timeline-description">
+                    <p>Kolhapur, Maharashtra</p>
+                    <ul>
+                        <li>Mastered HTML, CSS, JavaScript, and Bootstrap to create sleek and responsive websites</li>
+                        <li>Gained hands-on experience through real-world projects and collaboration with professionals</li>
+                        <li>Contributed to development of user-friendly interfaces and optimized website performance</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div>
+                        <h3 class="timeline-title">Freelance Web Developer</h3>
+                        <p class="timeline-company">Bigblock Infraworld Pvt. Ltd.</p>
+                    </div>
+                    <p class="timeline-date">January 2024 - February 2024</p>
+                </div>
+                <div class="timeline-description">
+                    <p>Kolhapur, Maharashtra</p>
+                    <ul>
+                        <li>Developed a responsive real estate website with property search functionality</li>
+                        <li>Implemented dynamic search filters and interactive image galleries using JavaScript</li>
+                        <li>Designed clean, intuitive UI with cross-browser compatibility</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div>
+                        <h3 class="timeline-title">B.Tech in AI & Machine Learning</h3>
+                        <p class="timeline-company">Sanjay Ghodawat University</p>
+                    </div>
+                    <p class="timeline-date">Pursuing</p>
+                </div>
+                <div class="timeline-description">
+                    <p>Atigre, Kolhapur, Maharashtra</p>
+                    <ul>
+                        <li>Focused coursework in AI, Machine Learning, Deep Learning, and Generative AI</li>
+                        <li>Strong foundation in Data Structures, Algorithms, and Cloud Computing</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div>
+                        <h3 class="timeline-title">Diploma in Computer Science</h3>
+                        <p class="timeline-company">Ashokrao Mane Polytechnic</p>
+                    </div>
+                    <p class="timeline-date">May 2020 - May 2023</p>
+                </div>
+                <div class="timeline-description">
+                    <p>Vathar, Kolhapur, Maharashtra</p>
+                    <ul>
+                        <li>Built strong foundation in computer science fundamentals</li>
+                        <li>Developed practical skills in programming and web development</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="fade-in">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">Let's work together</p>
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <div class="contact-details">
+                        <h3>Email</h3>
+                        <a href="mailto:jmjaidmulla@gmail.com">jmjaidmulla@gmail.com</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <div class="contact-details">
+                        <h3>Phone</h3>
+                        <a href="tel:+919595595997">+91 9595595997</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div class="contact-details">
+                        <h3>Location</h3>
+                        <p>Kolhapur, Maharashtra, India</p>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/jaid-mulla-59b095230" target="_blank" class="social-link" title="LinkedIn">
+                        <span>Linked In</span>
+
+
+                        
+
+                    </a>
+                    <a href="https://github.com/jmjaidmulla" target="_blank" class="social-link" title="GitHub">
+                        <span>GitHub</span>
+                    </a>
+                </div>
+            </div>
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p class="footer-text">© 2026 Jaid Mulla</p>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const themeText = document.getElementById('themeText');
+        const html = document.documentElement;
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', currentTheme);
+        updateThemeButton(currentTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeButton(newTheme);
+        });
+
+        function updateThemeButton(theme) {
+            if (theme === 'dark') {
+                themeIcon.textContent = '🌙';
+                themeText.textContent = 'Dark';
+            } else {
+                themeIcon.textContent = '☀️';
+                themeText.textContent = 'Light';
+            }
+        }
+
+        // Animated Role Text
+        const roles = [
+            'AI & ML Developer',
+            'Frontend Developer',
+            'Problem Solver',
+            'Tech Enthusiast',
+            'Lifelong Learner'
+        ];
+        let roleIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const roleTextElement = document.getElementById('roleText');
+
+        function typeRole() {
+            const currentRole = roles[roleIndex];
+            
+            if (isDeleting) {
+                roleTextElement.textContent = currentRole.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                roleTextElement.textContent = currentRole.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && charIndex === currentRole.length) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                roleIndex = (roleIndex + 1) % roles.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(typeRole, typeSpeed);
+        }
+
+        // Start the typing animation
+        setTimeout(typeRole, 1000);
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Contact form handling
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                message: document.getElementById('message').value
+            };
+            
+            // Here you would typically send the data to a server
+            // For now, we'll just show an alert
+            alert('Thank you for your message! I will get back to you soon.');
+            contactForm.reset();
+        });
+
+        // Add stagger animation to project cards
+        const projectCards = document.querySelectorAll('.project-card');
+        projectCards.forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.1}s`;
+        });
+    </script>
+</body>
+</html>
